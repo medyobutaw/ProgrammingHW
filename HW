@@ -1,0 +1,13 @@
+vowel = input('Enter a letter:')
+if vowel =='a':
+    print('The letter is a vowel.')
+elif vowel =='e':
+    print('The letter is a vowel.')
+elif vowel =='i':
+    print('The letter is a vowel.')
+elif vowel =='o':
+    print('The letter is a vowel.')
+elif vowel =='u':
+    print('The letter is a vowel.')
+else:
+    print('The letter is a consonant.')
