@@ -1,0 +1,78 @@
+import random
+import sys
+
+unknownWord = []
+secretWord = ['apple','banana','orange','harold','shanghai','spaghetti','birthday']
+gameWord = random.choice(secretWord)
+letters = 'abcdefghijklmnopqrstuvwxyz'
+letters2 = []
+length = len(gameWord)
+
+def start():
+    print('Hello! Would you like to play a game?\n')
+    
+    while True:
+        choice=input('type y/n\n')
+        
+        if choice == 'y':
+            print('Okay lets play Hangaroo!')
+            break
+        elif choice == 'n':
+            sys.exit('Okay see you next time!')
+        else:
+            print('Please input y or n')
+            
+start()
+
+
+def getGuessedWord():
+    
+    for character in gameWord:
+        unknownWord.append('_')
+        
+    print('The word has', length, 'letters.')
+    print(unknownWord)
+
+getGuessedWord()
+    
+def getAvailableLetters():
+    print('choose from the letters\n', letters)
+    print('You only have 10 tries.')
+    
+def Hangaroo():
+    guess = 1
+    
+    while guess < 10:
+    
+        letterUsed = input('Choose a letter\n')
+        
+        if not letterUsed in letters:
+            print("Please choose a letter from the alphabet")
+            
+        elif letterUsed in letters2:
+            print('The letter has already been used.')
+            
+        else:
+            
+            letters2.append(letterUsed)
+            if letterUsed in gameWord:
+                print('Good job!')
+                
+                for x in range(0,length):
+                    if gameWord[x]  == letterUsed:
+                        unknownWord[x] = letterUsed
+                        print (unknownWord)
+                
+                if not '_' in unknownWord:
+                    print('You win!')
+                    break
+            else:
+                print('The letter used is incorrect.')
+                guess += 1
+                if guess == 10:
+                    print('Game Over. You lose! The word is', gameWord)
+
+                
+getAvailableLetters()
+Hangaroo()         
+        
